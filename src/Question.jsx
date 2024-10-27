@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 export default function Question({title, info}) {
-    const [display, setDisplay] = useState(false)
 
+    const [expanded, setExpanded] = useState(false);
+   
     return (
-       <article className="question">
+      <>
+      <article className="question">
             <header>
                 <h4>{title}</h4>
                 <button 
                 className="btn"
-                onClick={() => {
-                    setDisplay(prev => !prev)
-                }}>
-                    {display ? <AiOutlineMinus /> : <AiOutlinePlus />}
+                onClick={() => setExpanded(!expanded)}>
+                    {expanded ? <AiOutlineMinus /> : <AiOutlinePlus />}
                 </button>
-                {display === true && <p>{info}</p>}
             </header>
-       </article>
+        {expanded && <p>{info}</p>}
+        </article>
+      </>
     )
 }

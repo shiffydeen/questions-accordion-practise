@@ -4,23 +4,23 @@ import SingleQuestion from './Question.jsx'
 
 
 function App() {
-  const questions = data;
-
-  // const toggleDisplay = () => {
-  //   setDisplay(!display)
-  // }
+ 
+  
 
   return (
+    <>
     <main>
       <div className="container">
-        <h3>questions and answers about login</h3>
-          <section className="info">
-            {questions.map((question) => {
-              return  <SingleQuestion key={question.id} {...question} />
-            })}
+        <h3>Questions and Answers</h3>
+        <section className="info">
+          {data.map((question) => {
+          return <SingleQuestion key={question.id} {...question}/>
+          })}
         </section>
+       
       </div>
     </main>
+    </>
   )
 }
 
